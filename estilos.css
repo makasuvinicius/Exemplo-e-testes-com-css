@@ -1,17 +1,7 @@
     /* RESET E VARIÁVEIS PERSONALIZADAS */
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Atalhos: */
-
 :root {
-    /* Para facilitar os atalhos das cores */
+
     --primary-color: #7effd4;
     --primary-hover: #5bd6ad;
     --secondary-color: #ffffff;
@@ -20,22 +10,27 @@
     --bg-light: #7effd4;
     --bg-dark: #272727;
     --border-color: #e2e8f0;
-    
-    /* Atalhos de Fontes e Tamanhos */
+
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --max-width: 75rem; /* 1200px */
 }
 
-/* Definições gerais */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
-    font-size: 100%; /* Para ajudar com as medidas Rem */
-    scroll-behavior: smooth; /* Para rolar a página suavimente quando clicar num botão */
+    font-size: 100%; 
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: var(--font-main);
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-dark);
@@ -50,7 +45,13 @@ ul {
     list-style: none;
 }
 
-    /* ESTRUTURA E CONTAINERS */
+img, picture, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+    /* ESTILOS E LAYOUT */
 
 .container {
     width: 90%;
@@ -63,29 +64,33 @@ ul {
     padding: 5rem 0;
 }
 
-.bg-light {
+.section--light {
     background-color: var(--bg-light);
 }
 
-.section-title, .section-title-2 {
+.section__title {
     font-size: 2rem;
     color: #272727;
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
-.section-title-2 {
-    color: var(--text-light)
+.section__title--light {
+    font-size: 2rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 0.5rem;
 }
 
-.section-subtitle {
+.section__subtitle {
     text-align: center;
     color: #272727;
     margin-bottom: 3rem;
     font-size: 1.1rem;
 }
 
-/* Botões */
+    /* BOTÕES */
+
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -97,27 +102,27 @@ ul {
     font-size: 1rem;
 }
 
-.btn-primary {
+.btn--primary {
     background-color: var(--primary-color);
     color: #ffffff;
 }
 
-.btn-primary:hover {
+.btn--primary:hover {
     background-color: var(--primary-hover);
 }
 
-.btn-secondary {
+.btn--secondary {
     background-color: transparent;
     color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
 }
 
-.btn-secondary:hover {
+.btn--secondary:hover {
     background-color: var(--secondary-color);
     color: var(--bg-dark);
 }
 
-.btn-block {
+.btn--block {
     width: 100%;
 }
 
@@ -135,41 +140,40 @@ ul {
     align-items: center;
 }
 
-.header-container {
+.header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
+.header__logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary-color);
 }
 
-.logo span {
+.header__logo-highlight {
     color: var(--primary-color);
 }
 
-.nav-list {
+.header__menu-toggle,
+.header__menu-icon {
+    display: none;
+}
+
+.header__nav-list {
     display: flex;
     gap: 2rem;
 }
 
-.nav-list a {
+.header__nav-link {
     font-weight: 600;
     color: var(--text-color);
     transition: color 0.3s ease;
 }
 
-.nav-list a:hover {
+.header__nav-link:hover {
     color: var(--primary-color);
-}
-
-/* Oculta botão de menu hamburguer no Desktop */
-.menu-toggle,
-.menu-icon {
-    display: none;
 }
 
 /* Parte inicial do site */
@@ -182,36 +186,43 @@ ul {
     padding: 3rem 0;
 }
 
-.hero-content {
+.hero__content {
     max-width: 50rem;
 }
 
-.hero h1 {
+.hero__title {
     font-size: 2.75rem;
     color: var(--secondary-color);
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
 
-.hero .highlight {
+.hero__highlight {
     color: var(--primary-color);
 }
 
-.hero p {
+.hero__text {
     font-size: 1.2rem;
     color: var(--text-light);
     margin-bottom: 2rem;
 }
 
-.hero-buttons {
+.hero__buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
 }
 
+.hero__image {
+
+    border-radius: 5rem;
+    padding: 2.5rem 0 0 0;
+    mask-image: linear-gradient(to top, transparent 0%, black 100%);
+}
+
     /* 1- SEÇÃO SOBRE NÓS */
 
-.sobre-grid {
+.sobre__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -219,44 +230,43 @@ ul {
     margin-top: 2rem;
 }
 
-.sobre-texto h3 {
+.sobre__subtitle {
     font-size: 1.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
 }
 
-.sobre-texto p {
+.sobre__text p {
     margin-bottom: 1rem;
 }
 
-.valores-card {
+.sobre__card {
     background-color: var(--bg-light);
     padding: 2rem;
     border-radius: 0.5rem;
     border-left: 4px solid var(--primary-color);
 }
 
-.valores-card h4 {
+.sobre__card-title {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--bg-dark);
 }
 
-.valores-card ul li {
+.sobre__card-item {
     margin-bottom: 0.8rem;
     color: var(--bg-dark);
 }
 
     /* 2- SEÇÃO SERVIÇOS */
 
-.servicos-grid {
+.servicos__grid {
     display: grid;
-    /* Grid Responsivo Inteligente usando minmax e fr */
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 2rem;
 }
 
-.card-servico {
+.servicos-card {
     background-color: var(--bg-dark);
     padding: 2.5rem 1.5rem;
     border-radius: 0.5rem;
@@ -264,32 +274,36 @@ ul {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-servico:hover {
+.servicos-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-.num-servicos {
+.servicos-card__number {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.card-servico h3 {
+.servicos-card__title {
     font-size: 1.25rem;
     color: var(--secondary-color);
     margin-bottom: 0.8rem;
 }
 
+.servicos-card__text {
+    color: var(--text-color);
+}
+
     /* 3 - SEÇÃO DEPOIMENTOS */
 
-.depoimentos-grid {
+.depoimento__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.card-depoimento {
+.depoimento-card {
     background-color: var(--bg-light);
     padding: 2rem;
     border-radius: 0.5rem;
@@ -299,27 +313,27 @@ ul {
     font-style: italic;
 }
 
-.card-depoimento p {
+.depoimento-card__text {
     margin-bottom: 1.5rem;
     color: var(--bg-dark);
 }
 
-.card-depoimento cite {
+.depoimento-card__autor {
     display: block;
     font-weight: 600;
     font-style: normal;
-    color: var(--bg-dark);;
+    color: var(--bg-dark);
 }
 
-.card-depoimento span {
+.depoimento-card__role {
     display: block;
     font-size: 0.875rem;
     font-style: normal;
-    color: var(--bg-dark);;
+    color: var(--bg-dark);
 }
 
     /* 4 - SEÇÃO CONTATO */
-.contato-wrapper {
+.contato__wrapper {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 3rem;
@@ -329,36 +343,35 @@ ul {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.contato-info h3 {
+.contato__info-title {
     font-size: 1.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
 }
 
-.info-item {
+.contato__info-item {
     margin-top: 1.5rem;
 }
 
-.contato-form {
+.contato__form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
 
-.form-group {
+.form__group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.form-group label {
+.form__label {
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--secondary-color);
 }
 
-.form-group input,
-.form-group textarea {
+.form__control {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
@@ -369,8 +382,7 @@ ul {
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form__control:focus {
     border-color: var(--primary-color);
 }
 
@@ -383,7 +395,7 @@ ul {
     font-size: 0.9rem;
 }
 
-.footer-container {
+.footer__container {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -391,24 +403,9 @@ ul {
 
         /* MEDIA QUERIES */
 
-/* Regras para Imagens e Mídia Responsiva */
-img, picture, video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.foto-background {
-    border-radius: 5rem;
-    padding: 2.5rem 0 0 0;
-    mask-image: linear-gradient(to top, transparent 0%, black 100%);
-}
-
 /* Media Query para Telas Médias e Pequenas (Tablets e Mobiles - max-width: 768px) */
-@media (max-width: 48rem) { /* 768px */
-
-    /* Ativação do Menu Hamburguer*/
-    .menu-icon {
+@media (max-width: 48rem) {
+    .header__menu-icon {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -418,7 +415,7 @@ img, picture, video {
         z-index: 1001;
     }
 
-    .menu-icon span {
+    .header__menu-icon span {
         height: 3px;
         width: 100%;
         background-color: var(--secondary-color);
@@ -426,7 +423,7 @@ img, picture, video {
         transition: all 0.3s ease;
     }
 
-    .nav {
+    .header__nav {
         position: absolute;
         top: 4.5rem;
         left: 0;
@@ -438,53 +435,44 @@ img, picture, video {
         transition: max-height 0.4s ease-in-out;
     }
 
-    .nav-list {
+    .header__nav-list {
         flex-direction: column;
         align-items: center;
         padding: 1.5rem 0;
         gap: 1.5rem;
     }
 
-    /* Exibe o menu quando o checkbox oculto for marcado */
-    .menu-toggle:checked ~ .nav {
+    .header__menu-toggle:checked ~ .header__nav {
         max-height: 20rem;
     }
 
-    /* Animação do ícone Hamburguer */
-    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+    .header__menu-toggle:checked ~ .header__menu-icon span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+    .header__menu-toggle:checked ~ .header__menu-icon span:nth-child(2) {
         opacity: 0;
     }
-    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+    .header__menu-toggle:checked ~ .header__menu-icon span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Ajustes em Grid e Flexbox */
-    .hero h1 {
+    .hero__title {
         font-size: 2rem;
     }
 
-    .sobre-grid,
-    .contato-wrapper {
+    .sobre__grid,
+    .contato__wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .contato-wrapper {
+    .contato__wrapper {
         padding: 1.5rem;
     }
-
-    .foto-background {
-    width: 100%;
-  }
-
 }
 
-/* Media Query para Telas Muito Pequenas (Smartphones - max-width: 480px) */
-@media (max-width: 30rem) { /* 480px */
-    .hero-buttons {
+@media (max-width: 30rem) {
+    .hero__buttons {
         flex-direction: column;
     }
 
@@ -492,11 +480,8 @@ img, picture, video {
         width: 100%;
     }
 
-    .section-title {
+    .section__title,
+    .section__title--light {
         font-size: 1.6rem;
     }
-
-    .foto-background {
-    width: 100%;
-  }
 }
