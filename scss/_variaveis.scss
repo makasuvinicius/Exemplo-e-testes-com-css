@@ -1,0 +1,18 @@
+$primary-color: #7effd4;
+$secundary-color: #ffffff;
+$text-color: #e7e7e7;
+
+$primary-hover: #5bd6ad;
+$border-color: $secundary-color;
+$text-light: $secundary-color;
+
+$bg-dark: #272727;
+$bg-light: $primary-color;
+
+$font-main: 'Inter', system-ui, -apple-system, sans-serif;
+$max-width: 75rem;
+
+// Pequenos operadores e mixins pra evitar pequenas repetições
+
+$header-height: 4.5rem;
+$spacing-unit: 1rem;

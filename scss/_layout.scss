@@ -1,0 +1,56 @@
+@use 'variaveis' as *;
+@use 'mixins' as *;
+
+.container {
+    width: 90%;
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
+    padding: $spacing-unit * 5;
+
+    &--light {
+        background-color: $bg-light;
+    }
+
+    &__title {
+    font-size: 2rem;
+    color: $bg-dark;
+    text-align: center;
+    margin-bottom: 0.5rem;
+
+        &--light {
+            font-size: 2rem;
+            color: $text-light;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        @include screen-max(30rem) {
+            font-size: 1.6rem;
+        }
+    }
+    
+    &__subtitle {
+        text-align: center;
+        color: $bg-dark;
+        margin-bottom: $spacing-unit * 3;
+        font-size: 1.1rem;
+    }
+}
+
+.footer {
+    background-color: $secundary-color;
+    color: $bg-dark;
+    padding: ($spacing-unit * 2) 0;
+    text-align: center;
+    font-size: 0.9rem;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
